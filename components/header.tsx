@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { Route, NavLink } from "./route"
 import Image from "next/image"
 import logo from "@/img/logo.png"
@@ -6,8 +5,8 @@ const Header = () => {
     const NavItem:NavLink[] = [
         {label: 'Возможности', href: '/'},
         {label: 'Тарифы', href: '/tarifs'},
-        {label: 'Внедрение', href: '/about'},
-        {label: 'Отзывы', href: '/about'},
+        {label: 'Внедрение', href: '/err'},
+        {label: 'Отзывы', href: '/reviews'},
         {label: 'Поддержка', href: '/about'},
     ]
     return(

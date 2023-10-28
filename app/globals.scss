@@ -73,7 +73,7 @@ footer{
   z-index: 7;
 }
 
-h1 {
+h1{
   text-align: center;
   margin-top: 0;
   color: var(--color-text2);
@@ -182,5 +182,14 @@ input[type="search"] {
 .css-25q7vw-MuiResponsiveChart-container{
   position: relative;
   left: 35vw;
+}
 
+.container-tarif{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+.pos4{
+  margin-top: 50px;
 }
