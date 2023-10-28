@@ -5,7 +5,7 @@ import logo from "@/img/logo.png"
 const Header = () => {
     const NavItem:NavLink[] = [
         {label: 'Возможности', href: '/'},
-        {label: 'Тарифы', href: '/about'},
+        {label: 'Тарифы', href: '/tarifs'},
         {label: 'Внедрение', href: '/about'},
         {label: 'Отзывы', href: '/about'},
         {label: 'Поддержка', href: '/about'},

@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -171,3 +172,15 @@ input[type="search"] {
   }
 }
 
+.pos2{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 300px;
+}
+
+.css-25q7vw-MuiResponsiveChart-container{
+  position: relative;
+  left: 35vw;
+
+}

@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
-import image from '@/img/test.jpg'
+import image from '@/img/plug.png'
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 const Slider = () => {
