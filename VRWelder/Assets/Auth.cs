@@ -11,22 +11,37 @@ public class Auth : MonoBehaviour
     public GameObject loadingPanel;
     public Slider progressBar;
     public TextMeshProUGUI progressText;
+    public TMP_InputField mailInput;
+    public TMP_InputField passwordInput;
 
     public void Login()
     {
-        Request("https://openvk.uk/method/Ovk.version");
-        StartCoroutine(LoadSceneAsync("Weld"));
+        if (mailInput.text != "" && passwordInput.text != "")
+        {
+            Request("https://0435-176-28-64-201.ngrok-free.app/api/signin");
+            StartCoroutine(LoadSceneAsync("Weld"));
+        }
+        else
+        {
+            Debug.Log("negri");
+        }
     }
     public void Request(string url)
     {
-        try
-        {
-            var request = UnityWebRequest.PostWwwForm(url, "");
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("ngrok-skip-browser-warning", "0");
-            StartCoroutine(onResponse(request));
-        }
-        catch (Exception e) { Debug.Log("ERROR : " + e.Message); }
+            var user = new UserLogin
+            {
+                email = mailInput.text,
+                password = passwordInput.text
+            };
+            try
+            {
+                var request = UnityWebRequest.Post(url, JsonUtility.ToJson(user), "application/json");
+                request.SetRequestHeader("Accept", "application/json");
+                request.SetRequestHeader("Content-Type", "application/json");
+                request.SetRequestHeader("ngrok-skip-browser-warning", "69420");
+                StartCoroutine(onResponse(request));
+            }
+            catch (Exception e) { Debug.Log("ERROR : " + e.Message); }
     }
     private IEnumerator onResponse(UnityWebRequest req)
     {
@@ -37,7 +52,6 @@ public class Auth : MonoBehaviour
             Debug.Log("Success " + req.downloadHandler.text);
         byte[] results = req.downloadHandler.data;
         Debug.Log("Second Success");
-        // Some code after success
 
     }
     IEnumerator LoadSceneAsync(string levelName)
