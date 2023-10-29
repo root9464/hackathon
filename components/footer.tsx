@@ -2,7 +2,8 @@ const Footer = () => {
 
     return(
         <footer>
-           <p>footer</p>
+           <p>Заявки</p>
+           <p>политика конфиденциальности</p>
         </footer>
     )
 }

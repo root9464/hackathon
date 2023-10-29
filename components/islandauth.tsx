@@ -3,14 +3,13 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/system';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormControl } from '@mui/material';
 import { Form } from './form';
+import axios from 'axios';
+import { TYPES } from 'pixijs';
 
 
-function sub(){
-    console.log('fff')
-}
 
 
 function ChildModal(){
@@ -38,7 +37,7 @@ function ChildModal(){
                     <Form/>
                     <p>Пароль</p>
                     <Form/>
-                    <Btn type="submit" onClick={sub}>sub</Btn>
+                    <Btn type="submit" onClick={(e) => {console.log('fff')}}>sub</Btn>
                 </div>
             <Button onClick={handleClose}>Регистрация</Button>
             </Box>
@@ -55,6 +54,12 @@ const Btn = styled(Button)(
     `
 )
 const Auth = () => {
+//   'https://localhost:7134/api'
+    const [appState, setAppState] = useState<any>();
+    
+    useEffect(() => {
+   
+    }, [setAppState]);
     const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => {
         setOpen(true);
@@ -62,7 +67,14 @@ const Auth = () => {
     const handleClose = () => {
         setOpen(false);
     };
-
+    function sub(){
+        const apiUrl = 'https://localhost:7134/api';
+        axios.get(apiUrl).then((resp) => {
+            const allPersons = resp;
+            setAppState(allPersons);
+        });
+        console.log(appState)
+    }
     return(
         <div>
             <Button onClick={handleOpen}>Login / Auth</Button>
