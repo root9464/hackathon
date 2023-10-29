@@ -1,0 +1,33 @@
+{
+  "name": "hakaton",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.15",
+    "@mui/joy": "^5.0.0-beta.12",
+    "@mui/material": "^5.14.15",
+    "@mui/x-charts": "^6.0.0-alpha.17",
+    "axios": "^1.6.0",
+    "framer-motion": "^10.16.4",
+    "next": "14.0.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.0",
+    "typescript": "^5"
+  }
+}
