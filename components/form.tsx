@@ -3,22 +3,7 @@ import { FormControl, FormControlState } from '@mui/base/FormControl';
 import { Input, inputClasses } from '@mui/base/Input';
 import { styled } from '@mui/system';
 import axios from 'axios';
-const Form = () => {
-    function submit(){
 
-    }   
-    return (
-        <FormControl defaultValue="" required >
-        {({ filled, focused }: FormControlState) => (
-            <>
-            <StyledInput className={filled ? 'filled' : ''} />
-            {filled && !focused && <OkMark>✔</OkMark>}
-            </>
-        )}
-        </FormControl>
-    );
-}
-export { Form }
 const StyledInput = styled(Input)(
     ({ theme }) => `
         display: inline-block;
@@ -28,6 +13,7 @@ const StyledInput = styled(Input)(
             font-size: 0.875rem;
             font-weight: 400;
             line-height: 1.5;
+            margin-top: 15px;
             padding: 8px 12px;
             border-radius: 8px;
             color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
@@ -51,14 +37,12 @@ const StyledInput = styled(Input)(
         }
     `,
 );
-
 const OkMark = styled('span')`
     margin-left: 8px;
     margin-top: 10px;
     position: absolute;
     color: rgb(125 200 0 / 1);
 `;
-
 const blue = {
     100: '#DAECFF',
     200: '#80BFFF',
@@ -78,3 +62,20 @@ const grey = {
     800: '#303740',
     900: '#1C2025',
 };
+
+const Form = () => {
+    function submit(){
+
+    }   
+    return (
+        <FormControl defaultValue="" required >
+        {({ filled, focused }: FormControlState) => (
+            <>
+            <StyledInput className={filled ? 'filled' : ''} />
+            {filled && !focused && <OkMark>✔</OkMark>}
+            </>
+        )}
+        </FormControl>
+    );
+}
+export { Form }
