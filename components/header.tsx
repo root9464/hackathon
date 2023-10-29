@@ -1,6 +1,7 @@
 import { Route, NavLink } from "./route"
 import Image from "next/image"
 import logo from "@/img/logo.png"
+import { Auth } from "./islandauth"
 const Header = () => {
     const NavItem:NavLink[] = [
         {label: 'Возможности', href: '/'},
@@ -15,6 +16,9 @@ const Header = () => {
                 <Image  className="logo" src={logo} alt="logo"/>
                 <Route navLinks={NavItem}/>
             </div>
+            <div className="island">
+                <Auth/>
+            </div>    
         </header>
     )
 }
