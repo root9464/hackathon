@@ -9,22 +9,26 @@ using UnityEngine.UI;
 public class Auth : MonoBehaviour
 {
     public GameObject loadingPanel;
+    public GameObject errorPanel;
     public Slider progressBar;
-    public TextMeshProUGUI progressText;
+    public TMP_Text panelText;
     public TMP_InputField mailInput;
     public TMP_InputField passwordInput;
-
     public void Login()
     {
         if (mailInput.text != "" && passwordInput.text != "")
         {
             Request("https://0435-176-28-64-201.ngrok-free.app/api/signin");
-            StartCoroutine(LoadSceneAsync("Weld"));
         }
         else
         {
-            Debug.Log("negri");
+            panelText.text = "Введите все данные";
+            errorPanel.SetActive(true);
         }
+    }
+    public void ClosePanel()
+    {
+        errorPanel.SetActive(false);
     }
     public void Request(string url)
     {
@@ -41,15 +45,26 @@ public class Auth : MonoBehaviour
                 request.SetRequestHeader("ngrok-skip-browser-warning", "69420");
                 StartCoroutine(onResponse(request));
             }
-            catch (Exception e) { Debug.Log("ERROR : " + e.Message); }
+            catch (Exception e) { Debug.Log("ERROR : " + e.Message);  }
     }
     private IEnumerator onResponse(UnityWebRequest req)
     {
         yield return req.SendWebRequest();
         if (req.isNetworkError)
+        {
             Debug.Log("Network error has occured: " + req.GetResponseHeader(""));
+        }
+        if (req.isHttpError)
+        {
+            panelText.text = "Неправильный логин или пароль";
+            errorPanel.SetActive(true);
+        }    
         else
-            Debug.Log("Success " + req.downloadHandler.text);
+        {
+            Debug.Log("Success " + req.downloadHandler.text); 
+            StartCoroutine(LoadSceneAsync("Weld"));
+        }
+            
         byte[] results = req.downloadHandler.data;
         Debug.Log("Second Success");
 
@@ -64,7 +79,6 @@ public class Auth : MonoBehaviour
         while (progress <= 1f)
         {
             progressBar.value = progress;
-            progressText.text = Mathf.Round(progress * 100f) + "%";
             progress += .01f;
             yield return new WaitForSeconds(.01f);
         }
