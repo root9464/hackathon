@@ -10,14 +10,14 @@ namespace Mysql
     {
         static void Main(string[] args)
         {
-            Worker worker = new Worker();
-            worker.AddWorker();
+            //Worker worker = new Worker();
+            //worker.Login_Worker();
             //HR_Manager hR_Manager = new HR_Manager();
-            //hR_Manager.Register_HR_Manager();
+            //hR_Manager.Login_HR_Manager();
             //Admin admin = new Admin();
-            //admin.Register_Admin();
-            //Company company = new Company();
-            //company.Register_Company();
+            //admin.Login_Admin();
+            Company company = new Company();
+            company.Login_Company();
         }
     }
 }

@@ -77,9 +77,9 @@
   <ItemGroup>
     <Compile Include="Admin.cs" />
     <Compile Include="Company.cs" />
+    <Compile Include="Connect.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="HR_Manager.cs" />
-    <Compile Include="Human.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

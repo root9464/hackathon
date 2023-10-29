@@ -29,13 +29,13 @@ namespace Mysql
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
-            //if (table.Rows.Count > 0)
-            //{
-            //    Console.WriteLine("Вы вошли в систему");
-            //}
-            //else
-            //    Console.WriteLine("Неверный логин или пароль");
-            
+            if (table.Rows.Count > 0)
+            {
+                Console.WriteLine("Вы вошли в систему");
+            }
+            else
+                Console.WriteLine("Неверный логин или пароль");
+
         }
     }
 }
